@@ -1,0 +1,9 @@
+.parent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.child{
+  padding: 25px;
+}

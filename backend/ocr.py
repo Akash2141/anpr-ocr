@@ -5,13 +5,13 @@ import cv2
 import os
 #
 # DEBUG_MODE=False
-# model=load_model('modelwts2.h5')
-#
-# arr_result = ['0','1','2','3','4','5','6','7','8','9',
-#               'A','B','C','D','E','F','G','H','I','J','K',
-#               'L','M','N','O','P','Q','R','S','T','U','V',
-#               'W','X','Y','Z'
-#              ]
+model=load_model('modelwts2.h5')
+
+arr_result = ['0','1','2','3','4','5','6','7','8','9',
+              'A','B','C','D','E','F','G','H','I','J','K',
+              'L','M','N','O','P','Q','R','S','T','U','V',
+              'W','X','Y','Z'
+             ]
 
 def extract_text(filepath):
     # inp_img = cv2.imread(filepath)

@@ -37,7 +37,7 @@ def extract_text(filepath):
         test_image = np.expand_dims(test_image, axis=0)
         try:
             print("this is the model::",model.predict)
-            # result = model.predict(test_image)
+            result = model.predict(test_image)
         except Exception as e:
             print("this is the exceptions::",e)
             return e

@@ -16,13 +16,13 @@ def welcome():
     try:
         # print("inside the extract function")
         file = request.files['file']
-        # filename = file.filename
+        filename = file.filename
         # print("filename:",filename)
-        # filepath = os.path.join(UPLOAD_FOLDER, filename)
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
         # print("upload folder status:", os.path.exists(UPLOAD_FOLDER),filepath)
         # file.save(filepath)
         # return extract_text(filepath)
-        return file.filename
+        return filepath
     except  Exception as e:
         print("error:",e)
         return e.args

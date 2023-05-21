@@ -12,7 +12,7 @@ function App() {
     data.append("file", ev.target.files[0]);
     data.append("filename", ev.target.files[0].name);
     let output = await axios({
-      url: "http://localhost:8000/extract",
+      url: "https://anpr-ocr.onrender.com/extract",
       data,
       method: "post",
     });

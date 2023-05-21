@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request
-from flask_cors import CORS
+from flask_cors import CORS,cross_origin
 from ocr import extract_text
 
 app = Flask(__name__)

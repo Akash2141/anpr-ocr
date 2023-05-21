@@ -32,6 +32,6 @@ def start():
     return 'Welcome'
 
 
-if __name__ == '__main__':
-    print("starts on 0000")
-    app.run(host="0.0.0.0",port=8000)
+# if __name__ == '__main__':
+#     print("starts on 0000")
+#     app.run(host="0.0.0.0",port=8000)

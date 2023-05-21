@@ -19,7 +19,7 @@ def welcome():
         filename = file.filename
         # print("filename:",filename)
         filepath = os.path.join(UPLOAD_FOLDER, filename)
-        # print("upload folder status:", os.path.exists(UPLOAD_FOLDER),filepath)
+        print("upload folder status:", os.path.exists(UPLOAD_FOLDER),filepath)
         # file.save(filepath)
         # return extract_text(filepath)
         return filepath

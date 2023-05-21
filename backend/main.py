@@ -18,7 +18,7 @@ def welcome():
     return extract_text(filepath)
 
 @app.route('/', methods=['GET'])
-def welcome():
+def start():
     return 'Welcome'
 
 

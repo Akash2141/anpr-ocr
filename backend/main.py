@@ -13,13 +13,16 @@ if not os.path.exists(UPLOAD_FOLDER):
 @app.route('/extract', methods=['POST'])
 @cross_origin(origins="*")
 def welcome():
-    print("inside the extract function")
-    file = request.files['file']
-    filename = file.filename
-    filepath = os.path.join(UPLOAD_FOLDER, filename)
-    print("upload folder status:", os.path.exists(UPLOAD_FOLDER),filepath)
-    file.save(filepath)
-    return extract_text(filepath)
+    try:
+        print("inside the extract function")
+        file = request.files['file']
+        filename = file.filename
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
+        print("upload folder status:", os.path.exists(UPLOAD_FOLDER),filepath)
+        file.save(filepath)
+        return extract_text(filepath)
+    except  Exception as e:
+        print("error:",e)
 
 @app.route('/', methods=['GET'])
 def start():

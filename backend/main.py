@@ -23,6 +23,7 @@ def welcome():
         return extract_text(filepath)
     except  Exception as e:
         print("error:",e)
+        return e.args
 
 @app.route('/', methods=['GET'])
 def start():

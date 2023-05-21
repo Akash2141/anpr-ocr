@@ -9,6 +9,7 @@ UPLOAD_FOLDER = "./upload/"
 
 
 @app.route('/extract', methods=['POST'])
+@cross_origin()
 def welcome():
     file = request.files['file']
     filename = file.filename

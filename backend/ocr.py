@@ -33,8 +33,8 @@ def extract_text(filepath):
         test_image = gray[y:y + h, x:x + w]
         show_img(test_image)
         test_image = cv2.resize(test_image.copy(), (64, 64), interpolation=cv2.INTER_AREA)
-        # test_image = (image.img_to_array(test_image)) / 255
-        # test_image = np.expand_dims(test_image, axis=0)
+        test_image = (image.img_to_array(test_image)) / 255
+        test_image = np.expand_dims(test_image, axis=0)
         # result = model.predict(test_image)
         # np.reshape(result, 36)
         # maxval = np.amax(result)

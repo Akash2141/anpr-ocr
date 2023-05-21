@@ -10,6 +10,7 @@ UPLOAD_FOLDER = "./upload/"
 @app.route('/extract', methods=['POST'])
 @cross_origin(origins="*")
 def welcome():
+    print("inside the extract function")
     file = request.files['file']
     filename = file.filename
     filepath = os.path.join(UPLOAD_FOLDER, filename)
@@ -24,5 +25,6 @@ def start():
 
 if __name__ == '__main__':
     if not os.path.exists(UPLOAD_FOLDER):
+        print("going to create upload folder")
         os.mkdir(UPLOAD_FOLDER)
     app.run(port=8000)

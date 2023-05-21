@@ -22,8 +22,7 @@ def welcome():
         print("upload folder status:", os.path.exists(UPLOAD_FOLDER),filepath)
         file.save(filepath)
         print("filepath status:", os.path.exists(filepath))
-        extract_text(filepath)
-        return filepath
+        return extract_text(filepath)
     except  Exception as e:
         print("error:",e)
         return e.args

@@ -7,6 +7,9 @@ app = Flask(__name__)
 CORS(app)
 UPLOAD_FOLDER = "./upload/"
 
+if not os.path.exists(UPLOAD_FOLDER):
+    os.mkdir(UPLOAD_FOLDER)
+
 @app.route('/extract', methods=['POST'])
 @cross_origin(origins="*")
 def welcome():
@@ -24,7 +27,4 @@ def start():
 
 
 if __name__ == '__main__':
-    if not os.path.exists(UPLOAD_FOLDER):
-        print("going to create upload folder")
-        os.mkdir(UPLOAD_FOLDER)
     app.run(port=8000)

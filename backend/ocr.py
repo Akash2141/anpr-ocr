@@ -14,7 +14,7 @@ arr_result = ['0','1','2','3','4','5','6','7','8','9',
              ]
 
 def extract_text(filepath):
-    # inp_img = cv2.imread(filepath)
+    inp_img = cv2.imread(filepath)
     # img = inp_img.copy()
     # denoised = cv2.fastNlMeansDenoising(inp_img, h=7)
     # gray = cv2.cvtColor(denoised, cv2.COLOR_BGR2GRAY)

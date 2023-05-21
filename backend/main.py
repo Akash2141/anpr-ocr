@@ -17,6 +17,10 @@ def welcome():
     file.save(filepath)
     return extract_text(filepath)
 
+@app.route('/', methods=['GET'])
+def welcome():
+    return 'Welcome'
+
 
 if __name__ == '__main__':
     app.run(port=8000)

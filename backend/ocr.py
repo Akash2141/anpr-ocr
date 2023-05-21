@@ -3,8 +3,8 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import cv2
 import os
-#
-# DEBUG_MODE=False
+
+DEBUG_MODE=False
 model=load_model('modelwts2.h5')
 
 arr_result = ['0','1','2','3','4','5','6','7','8','9',
@@ -28,28 +28,28 @@ def extract_text(filepath):
         x, y, w, h = cv2.boundingRect(cnt)
         if w * h > 290:
             h_list.append([x, y, w, h])
-    # for hl in h_list:
-    #     x, y, w, h = hl
-    #     test_image = gray[y:y + h, x:x + w]
-    #     show_img(test_image)
-    #     test_image = cv2.resize(test_image.copy(), (64, 64), interpolation=cv2.INTER_AREA)
-    #     test_image = (image.img_to_array(test_image)) / 255
-    #     test_image = np.expand_dims(test_image, axis=0)
-    #     result = model.predict(test_image)
-    #     np.reshape(result, 36)
-    #     maxval = np.amax(result)
-    #     index = np.where(result == maxval)
-    #     rs = arr_result[index[1][0]]
-    #     predicted_str = predicted_str + rs
-    # os.remove(filepath)
+    for hl in h_list:
+        x, y, w, h = hl
+        test_image = gray[y:y + h, x:x + w]
+        show_img(test_image)
+        test_image = cv2.resize(test_image.copy(), (64, 64), interpolation=cv2.INTER_AREA)
+        # test_image = (image.img_to_array(test_image)) / 255
+        # test_image = np.expand_dims(test_image, axis=0)
+        # result = model.predict(test_image)
+        # np.reshape(result, 36)
+        # maxval = np.amax(result)
+        # index = np.where(result == maxval)
+        # rs = arr_result[index[1][0]]
+        # predicted_str = predicted_str + rs
+    os.remove(filepath)
     return predicted_str
 
-# def show_img(img,name="image"):
-#     if(DEBUG_MODE):
-#         cv2.imshow(name,img)
-#         cv2.waitKey(0)
-#         cv2.destroyAllWindows()
-#
+def show_img(img,name="image"):
+    if(DEBUG_MODE):
+        cv2.imshow(name,img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
 def sort_contours(cnts):
     boundingBoxes = [cv2.boundingRect(c) for c in cnts]
     (cnts, boundingBoxes) = zip(*sorted(zip(cnts, boundingBoxes),

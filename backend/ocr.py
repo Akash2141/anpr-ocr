@@ -15,15 +15,15 @@ arr_result = ['0','1','2','3','4','5','6','7','8','9',
 
 def extract_text(filepath):
     inp_img = cv2.imread(filepath)
-    # img = inp_img.copy()
-    # denoised = cv2.fastNlMeansDenoising(inp_img, h=7)
-    # gray = cv2.cvtColor(denoised, cv2.COLOR_BGR2GRAY)
-    # blur = cv2.GaussianBlur(gray, (5, 5), 0)
-    # _, thresh = cv2.threshold(blur, 0, 255, cv2.THRESH_OTSU + cv2.THRESH_BINARY)
-    # contours, _ = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-    # predicted_str = ''
-    # h_list = [];
-    # contours = sort_contours(contours)[1:]
+    img = inp_img.copy()
+    denoised = cv2.fastNlMeansDenoising(inp_img, h=7)
+    gray = cv2.cvtColor(denoised, cv2.COLOR_BGR2GRAY)
+    blur = cv2.GaussianBlur(gray, (5, 5), 0)
+    _, thresh = cv2.threshold(blur, 0, 255, cv2.THRESH_OTSU + cv2.THRESH_BINARY)
+    contours, _ = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    predicted_str = ''
+    h_list = [];
+    contours = sort_contours(contours)[1:]
     # for cnt in contours:
     #     x, y, w, h = cv2.boundingRect(cnt)
     #     if w * h > 290:
@@ -51,8 +51,8 @@ def extract_text(filepath):
 #         cv2.waitKey(0)
 #         cv2.destroyAllWindows()
 #
-# def sort_contours(cnts):
-#     boundingBoxes = [cv2.boundingRect(c) for c in cnts]
-#     (cnts, boundingBoxes) = zip(*sorted(zip(cnts, boundingBoxes),
-#                                         key=lambda b: b[1][0], reverse=False))
-#     return cnts
+def sort_contours(cnts):
+    boundingBoxes = [cv2.boundingRect(c) for c in cnts]
+    (cnts, boundingBoxes) = zip(*sorted(zip(cnts, boundingBoxes),
+                                        key=lambda b: b[1][0], reverse=False))
+    return cnts

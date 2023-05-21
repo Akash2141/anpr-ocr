@@ -36,16 +36,17 @@ def extract_text(filepath):
         test_image = (image.img_to_array(test_image)) / 255
         test_image = np.expand_dims(test_image, axis=0)
         try:
-            result = model.predict(test_image)
+            print("this is the model::",model)
+            # result = model.predict(test_image)
         except Exception as e:
-            print("this is the exceptions::",e.args)
+            print("this is the exceptions::",e)
             return e
         # np.reshape(result, 36)
         # maxval = np.amax(result)
         # index = np.where(result == maxval)
         # rs = arr_result[index[1][0]]
         # predicted_str = predicted_str + rs
-    os.remove(filepath)
+    # os.remove(filepath)
     return predicted_str
 
 def show_img(img,name="image"):
